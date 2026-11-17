@@ -1,0 +1,402 @@
+/* ============================================
+   Glen Marso — Авангардный минимализм
+   Цвета: чёрный / белый / синий
+   Формы: острые осколки
+   ============================================ */
+
+:root {
+  --bg: #000000;
+  --white: #ffffff;
+  --blue: #1a5cff;
+  --blue-deep: #0066ff;
+  --blue-glow: #3d7aff;
+  --gray: #c8c8d0;
+  --gray-dark: #8a8a96;
+  --text-muted: #a0a0b0;
+  
+  --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-elegant: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-ui: 'Inter', system-ui, sans-serif;
+  
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-ui);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Декоративные осколки фона ---------- */
+.shards {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shard {
+  position: absolute;
+  background: linear-gradient(135deg, var(--blue), transparent 70%);
+  opacity: 0.07;
+  clip-path: polygon(30% 0%, 100% 20%, 80% 100%, 0% 70%);
+}
+
+.shard-1 { width: 280px; height: 320px; top: -80px; right: 8%; transform: rotate(15deg); }
+.shard-2 { width: 180px; height: 220px; bottom: 15%; left: -40px; transform: rotate(-25deg); opacity: 0.05; }
+.shard-3 { width: 140px; height: 180px; top: 40%; right: -30px; transform: rotate(40deg); }
+.shard-4 { width: 100px; height: 130px; top: 20%; left: 5%; transform: rotate(-10deg); opacity: 0.04; }
+.shard-5 { width: 200px; height: 160px; bottom: 5%; right: 20%; transform: rotate(55deg); opacity: 0.06; }
+.shard-6 { width: 90px; height: 110px; top: 70%; left: 25%; transform: rotate(70deg); opacity: 0.05; }
+
+/* ---------- Основной контейнер ---------- */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------- Логотип ---------- */
+.logo-block {
+  text-align: center;
+  margin-bottom: 2.8rem;
+}
+
+.logo-mark {
+  width: min(380px, 85vw);
+  margin: 0 auto 0.4rem;
+}
+
+.logo-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 18px rgba(26, 92, 255, 0.25));
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 7vw, 3.8rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 1.1rem;
+  background: linear-gradient(90deg, #fff 0%, #e8e8ff 50%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.studio-label {
+  font-family: var(--font-elegant);
+  font-size: clamp(0.72rem, 1.8vw, 0.9rem);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 0.3rem;
+}
+
+/* ---------- Цитата ---------- */
+.quote {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+}
+
+.quote p {
+  font-family: var(--font-elegant);
+  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #d0d0e0;
+  margin-bottom: 0.9rem;
+}
+
+.quote cite {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--blue-glow);
+  display: block;
+}
+
+/* ---------- Навигационные карточки-осколки ---------- */
+.nav-shards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.1rem;
+  width: 100%;
+  max-width: 920px;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.nav-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  width: 148px;
+  height: 210px;
+  padding: 1.4rem 0.9rem;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), filter 0.45s;
+  overflow: hidden;
+}
+
+/* Острые формы через clip-path */
+.nav-card.card-blue {
+  background: linear-gradient(160deg, #1a5cff 0%, #0044cc 55%, #0033aa 100%);
+  clip-path: polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%);
+  box-shadow: 0 8px 28px rgba(26, 92, 255, 0.35);
+}
+
+.nav-card.card-light {
+  background: linear-gradient(160deg, #e8e8f0 0%, #c8c8d4 60%, #b0b0c0 100%);
+  color: #0a0a12;
+  clip-path: polygon(0% 0%, 88% 0%, 100% 100%, 12% 100%);
+  box-shadow: 0 8px 28px rgba(200, 200, 220, 0.15);
+}
+
+.nav-card:nth-child(1) { clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%); }
+.nav-card:nth-child(2) { clip-path: polygon(0% 0%, 92% 0%, 100% 100%, 8% 100%); }
+.nav-card:nth-child(3) { clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%); }
+.nav-card:nth-child(4) { clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%); }
+.nav-card:nth-child(5) { clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%); }
+
+.nav-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  filter: brightness(1.12);
+  z-index: 2;
+}
+
+.nav-card.card-blue:hover {
+  box-shadow: 0 16px 40px rgba(26, 92, 255, 0.5);
+}
+
+.nav-card.card-light:hover {
+  box-shadow: 0 16px 40px rgba(200, 200, 220, 0.25);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+}
+
+.card-sub {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+.card-light .card-sub {
+  color: #2a2a38;
+  opacity: 0.75;
+}
+
+/* ---------- Боковой декоративный осколок ---------- */
+.side-shard {
+  position: absolute;
+  right: 0;
+  top: 58%;
+  width: 90px;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.side-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(26, 92, 255, 0.4));
+}
+
+/* ---------- Контакты ---------- */
+.contacts {
+  align-self: flex-end;
+  text-align: right;
+  margin-top: -1rem;
+  margin-right: 0.5rem;
+  max-width: 200px;
+}
+
+.contacts-title {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue-glow);
+  margin-bottom: 0.7rem;
+}
+
+.contacts-list {
+  list-style: none;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+.contacts-list li {
+  transition: color 0.3s;
+}
+
+.contacts-list li:hover {
+  color: var(--white);
+  cursor: default;
+}
+
+/* ---------- Подвал ---------- */
+.page-footer {
+  margin-top: auto;
+  padding-top: 3.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  margin: 0 auto 1.2rem;
+}
+
+.footer-note {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #555566;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 900px) {
+  .side-shard {
+    display: none;
+  }
+  
+  .contacts {
+    align-self: center;
+    text-align: center;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .page {
+    padding: 3rem 1rem 2.5rem;
+  }
+  
+  .nav-shards {
+    gap: 0.9rem;
+  }
+  
+  .nav-card {
+    width: 130px;
+    height: 185px;
+    padding: 1.1rem 0.7rem;
+  }
+  
+  .card-title {
+    font-size: 0.92rem;
+  }
+  
+  .card-sub {
+    font-size: 0.65rem;
+  }
+  
+  .logo-text {
+    letter-spacing: 0.02em;
+  }
+  
+  .studio-label {
+    letter-spacing: 0.18em;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-card {
+    width: calc(50% - 0.6rem);
+    height: 160px;
+  }
+  
+  .nav-card:nth-child(5) {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .quote p {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Плавное появление ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-block {
+  animation: fadeUp 0.9s var(--ease) both;
+}
+
+.quote {
+  animation: fadeUp 0.9s var(--ease) 0.15s both;
+}
+
+.nav-shards {
+  animation: fadeUp 0.9s var(--ease) 0.3s both;
+}
+
+.contacts {
+  animation: fadeUp 0.9s var(--ease) 0.45s both;
+}
+
+.page-footer {
+  animation: fadeUp 0.9s var(--ease) 0.55s both;
+}
