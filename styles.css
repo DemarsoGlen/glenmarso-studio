@@ -1,331 +1,116 @@
-/* ============================================
-   Glen Marso Studio — Final design
-   Чёрный / Белый / Синий · Острые осколки
-   ============================================ */
+/* Glen Marso Studio — Image-based hero version
+   Максимально точное сохранение художественного эскиза
+*/
 
-:root {
-  --bg: #000000;
-  --white: #ffffff;
-  --blue: #1a5cff;
-  --blue-deep: #0066ff;
-  --blue-glow: #3d7aff;
-  --gray: #c8c8d0;
-  --text-muted: #a0a0b0;
-
-  --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  --font-elegant: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
-
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-*, *::before, *::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: var(--font-ui);
+html, body {
+  background: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
   min-height: 100vh;
-  overflow-x: hidden;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
 }
 
 .page {
-  position: relative;
-  z-index: 1;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem 3rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 3rem;
 }
 
-/* ---------- Логотип ---------- */
-.logo-block {
-  text-align: center;
-  margin-bottom: 2.4rem;
-}
-
-.logo-mark {
-  width: min(340px, 80vw);
-  margin: 0 auto 0.2rem;
-}
-
-.logo-svg {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 0 18px rgba(26, 92, 255, 0.25));
-}
-
-.logo-text {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(2.6rem, 7vw, 3.8rem);
-  letter-spacing: 0.03em;
-  line-height: 1;
-  margin-bottom: 0.9rem;
-  color: #fff;
-}
-
-.logo-text .letter-blue {
-  color: #1a5cff;
-}
-
-.studio-label {
-  font-family: var(--font-elegant);
-  font-size: clamp(0.68rem, 1.6vw, 0.85rem);
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--gray);
-}
-
-/* ---------- Цитата ---------- */
-.quote {
-  text-align: center;
-  max-width: 580px;
-  margin: 0 auto 3.5rem;
-  padding: 0 1rem;
-}
-
-.quote p {
-  font-family: var(--font-elegant);
-  font-size: clamp(1.05rem, 2.3vw, 1.3rem);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.55;
-  color: #d4d4e0;
-  margin-bottom: 0.7rem;
-}
-
-.quote cite {
-  font-family: var(--font-elegant);
-  font-size: 0.95rem;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  color: #3d7aff;
-  display: block;
-}
-
-/* ---------- Навигация-осколки ---------- */
-.shards-nav {
+.hero-wrapper {
   position: relative;
   width: 100%;
-  max-width: 780px;
-  height: 280px;
-  margin-bottom: 2.5rem;
+  max-width: 720px;
+  line-height: 0;
 }
 
-.shard {
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Прозрачные кликабельные зоны */
+.hotspot {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.35s var(--ease), filter 0.35s;
-  cursor: pointer;
+  display: block;
+  z-index: 5;
+  /* Для отладки можно временно включить:
+  background: rgba(255, 0, 0, 0.25);
+  */
 }
 
-.shard:hover {
-  transform: translateY(-6px) scale(1.03);
-  filter: brightness(1.12);
-  z-index: 10;
+.hotspot:hover {
+  outline: 1px solid rgba(61, 122, 255, 0.5);
+  outline-offset: 2px;
 }
 
-.shard-label {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  pointer-events: none;
+/* Примерные зоны — их нужно будет подстроить под точное расположение на картинке */
+.hotspot-proza {
+  left: 8%;
+  top: 62%;
+  width: 22%;
+  height: 22%;
 }
 
-.shard-label.vertical {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  letter-spacing: 0.18em;
+.hotspot-art {
+  left: 32%;
+  top: 58%;
+  width: 9%;
+  height: 28%;
 }
 
-/* ПРОЗА — крупный белый осколок слева */
-.shard-proza {
-  left: 2%;
-  top: 30px;
-  width: 200px;
-  height: 220px;
-  background: linear-gradient(160deg, #f0f0f5 0%, #d0d0d8 100%);
-  color: #0a0a12;
-  clip-path: polygon(18% 0%, 100% 8%, 85% 100%, 0% 92%);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-/* АРТ — синий вертикальный */
-.shard-art {
-  left: 28%;
-  top: 10px;
-  width: 70px;
-  height: 240px;
-  background: linear-gradient(180deg, #1a5cff 0%, #0044cc 100%);
-  color: #fff;
-  clip-path: polygon(20% 0%, 100% 5%, 80% 100%, 0% 95%);
-  box-shadow: 0 10px 30px rgba(26, 92, 255, 0.35);
-}
-
-/* КУБ */
-.shard-kub {
+.hotspot-kub {
   left: 38%;
-  top: 140px;
-  width: 110px;
-  height: 100px;
-  background: linear-gradient(150deg, #e8e8f0 0%, #c0c0cc 100%);
-  color: #0a0a12;
-  clip-path: polygon(15% 0%, 100% 10%, 90% 100%, 0% 90%);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  top: 72%;
+  width: 12%;
+  height: 14%;
 }
 
-/* ПОЭЗИЯ — высокий белый */
-.shard-poeziya {
-  left: 55%;
-  top: 20px;
-  width: 90px;
-  height: 250px;
-  background: linear-gradient(170deg, #f2f2f7 0%, #d4d4dc 100%);
-  color: #0a0a12;
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+.hotspot-poeziya {
+  left: 52%;
+  top: 58%;
+  width: 12%;
+  height: 30%;
 }
 
-/* Декоративный осколок справа */
-.shard-deco {
-  position: absolute;
-  right: 0;
-  top: 40px;
-  width: 130px;
-  height: 180px;
-  background: linear-gradient(135deg, #1a5cff 0%, #0033aa 60%, #1a5cff 100%);
-  clip-path: polygon(40% 0%, 100% 20%, 70% 100%, 0% 80%, 15% 30%);
-  opacity: 0.95;
-  box-shadow: 0 0 25px rgba(26, 92, 255, 0.4);
-  pointer-events: none;
+/* Нижняя полоска контактов */
+.contacts-bar {
+  margin-top: 1.8rem;
+  font-size: 0.82rem;
+  color: #8a8a9a;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 1rem;
+  text-align: center;
 }
 
-/* ---------- Контакты ---------- */
-.contacts {
-  align-self: flex-end;
-  text-align: right;
-  margin-top: 0.5rem;
-  margin-right: 0.5rem;
-}
-
-.contacts-title {
-  font-family: var(--font-ui);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--blue-glow);
-  margin-bottom: 0.7rem;
-}
-
-.contacts-list {
-  list-style: none;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  line-height: 1.85;
-}
-
-.contacts-list a {
-  color: var(--text-muted);
+.contacts-bar a {
+  color: #8a8a9a;
   text-decoration: none;
   transition: color 0.25s;
 }
 
-.contacts-list a:hover {
-  color: #fff;
+.contacts-bar a:hover {
+  color: #3d7aff;
 }
 
-.contacts-list .icon {
-  display: inline-block;
-  width: 1.2em;
-  margin-right: 0.35em;
-  color: var(--blue-glow);
-}
-
-/* ---------- Подвал ---------- */
-.page-footer {
-  margin-top: auto;
-  padding-top: 3rem;
-  width: 100%;
-  text-align: center;
-}
-
-.footer-line {
-  width: 50px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--blue), transparent);
-  margin: 0 auto 1rem;
-}
-
-.page-footer p {
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #555566;
-}
-
-/* ---------- Адаптив ---------- */
-@media (max-width: 720px) {
-  .shards-nav {
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    position: static;
-  }
-
-  .shard {
-    position: static !important;
-    width: 140px !important;
-    height: 160px !important;
-  }
-
-  .shard-art,
-  .shard-poeziya {
-    width: 70px !important;
-  }
-
-  .shard-deco {
-    display: none;
-  }
-
-  .contacts {
-    align-self: center;
-    text-align: center;
-    margin-top: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .page {
-    padding: 2.8rem 1rem 2rem;
+    padding: 1.2rem 0.6rem 2rem;
   }
 
-  .logo-text {
-    font-size: 2.3rem;
+  .contacts-bar {
+    font-size: 0.75rem;
   }
 }
