@@ -1,5 +1,5 @@
-/* Glen Marso Studio — Image-based hero version
-   Максимально точное сохранение художественного эскиза
+/* Glen Marso Studio — Image hero version
+   Точное сохранение художественного эскиза
 */
 
 * {
@@ -9,10 +9,11 @@
 }
 
 html, body {
-  background: #000;
-  color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
+  background: #000000;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 .page {
@@ -21,13 +22,13 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem 3rem;
+  padding: 2.5rem 1rem 2rem;
 }
 
 .hero-wrapper {
   position: relative;
   width: 100%;
-  max-width: 720px;
+  max-width: 920px; /* чуть шире для больших экранов */
   line-height: 0;
 }
 
@@ -42,75 +43,68 @@ html, body {
 /* Прозрачные кликабельные зоны */
 .hotspot {
   position: absolute;
+  z-index: 10;
   display: block;
-  z-index: 5;
-  /* Для отладки можно временно включить:
-  background: rgba(255, 0, 0, 0.25);
+  /* Раскомментируй для отладки положения:
+  background: rgba(255, 0, 0, 0.3);
   */
 }
 
 .hotspot:hover {
-  outline: 1px solid rgba(61, 122, 255, 0.5);
-  outline-offset: 2px;
+  outline: 1px solid rgba(61, 122, 255, 0.6);
+  outline-offset: 1px;
 }
 
-/* Примерные зоны — их нужно будет подстроить под точное расположение на картинке */
+/* Примерные координаты — будем уточнять */
 .hotspot-proza {
-  left: 8%;
-  top: 62%;
-  width: 22%;
-  height: 22%;
+  left: 6%;
+  top: 58%;
+  width: 20%;
+  height: 26%;
 }
 
 .hotspot-art {
-  left: 32%;
-  top: 58%;
-  width: 9%;
-  height: 28%;
+  left: 28%;
+  top: 52%;
+  width: 8%;
+  height: 32%;
 }
 
 .hotspot-kub {
-  left: 38%;
-  top: 72%;
-  width: 12%;
-  height: 14%;
+  left: 33%;
+  top: 68%;
+  width: 11%;
+  height: 16%;
 }
 
 .hotspot-poeziya {
   left: 52%;
-  top: 58%;
-  width: 12%;
-  height: 30%;
+  top: 55%;
+  width: 11%;
+  height: 32%;
 }
 
-/* Нижняя полоска контактов */
-.contacts-bar {
+/* Нижняя строка */
+.site-footer {
   margin-top: 1.8rem;
-  font-size: 0.82rem;
-  color: #8a8a9a;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.6rem 1rem;
+  max-width: 720px;
   text-align: center;
+  padding: 0 1rem;
 }
 
-.contacts-bar a {
-  color: #8a8a9a;
-  text-decoration: none;
-  transition: color 0.25s;
-}
-
-.contacts-bar a:hover {
-  color: #3d7aff;
+.site-footer p {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: #666677;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 600px) {
   .page {
-    padding: 1.2rem 0.6rem 2rem;
+    padding: 1.2rem 0.5rem 1.5rem;
   }
 
-  .contacts-bar {
-    font-size: 0.75rem;
+  .site-footer p {
+    font-size: 0.65rem;
   }
 }
