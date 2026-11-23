@@ -17,16 +17,36 @@
     <div class="hero-wrapper">
       <img src="hero.jpg" alt="Glen Marso — Студия литературно-философского и художественного творчества" class="hero-image" draggable="false">
 
-      <!-- Кликабельные зоны (приблизительно, потом подправим) -->
+      <!-- Активные зоны -->
       <a href="/proza/" class="hotspot hotspot-proza" title="Проза" aria-label="Проза"></a>
       <a href="/art/" class="hotspot hotspot-art" title="Арт" aria-label="Арт"></a>
       <a href="/kub/" class="hotspot hotspot-kub" title="КУБ" aria-label="КУБ"></a>
       <a href="/poeziya/" class="hotspot hotspot-poeziya" title="Поэзия" aria-label="Поэзия"></a>
+      
+      <!-- Правый арт-объект = Контакты -->
+      <button type="button" class="hotspot hotspot-contacts" id="contactsBtn" title="Контакты" aria-label="Контакты"></button>
+    </div>
+
+    <!-- Всплывающие контакты -->
+    <div class="contacts-panel" id="contactsPanel" hidden>
+      <div class="contacts-inner">
+        <button type="button" class="contacts-close" id="contactsClose" aria-label="Закрыть">×</button>
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="mailto:glen.marso@studio.ru">glen.marso@studio.ru</a></li>
+          <li><a href="https://t.me/glenmarso" target="_blank" rel="noopener">t.me/glenmarso</a></li>
+          <li><a href="https://vk.com/glenmarso" target="_blank" rel="noopener">vk.com/glenmarso</a></li>
+          <li>Санкт-Петербург</li>
+        </ul>
+      </div>
     </div>
 
     <footer class="site-footer">
-      <p>Все литературные и арт-объекты сайта защищены авторским правом. При использовании ссылка на имя автора обязательна.</p>
+      <p>© Все объекты сайта защищены авторским правом.<br>
+      При использовании ссылка на имя автора сайта обязательна.</p>
     </footer>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
