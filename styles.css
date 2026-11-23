@@ -1,4 +1,4 @@
-/* Glen Marso Studio — точное соответствие эскизу */
+/* Glen Marso Studio — точное соответствие последнему эскизу */
 
 * {
   box-sizing: border-box;
@@ -20,7 +20,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem 1.5rem;
+  padding: 1.5rem 1rem;
 }
 
 .hero-wrapper {
@@ -47,7 +47,7 @@ html, body {
   background: transparent;
   cursor: pointer;
   padding: 0;
-  /* Для отладки раскомментируй:
+  /* Для отладки:
   background: rgba(255, 0, 0, 0.25);
   */
 }
@@ -57,50 +57,47 @@ html, body {
   outline-offset: 2px;
 }
 
-/* Координаты подогнаны под текущий эскиз.
-   Можно будет уточнить после проверки на сайте. */
-
+/* Координаты — будем уточнять после проверки */
 .hotspot-proza {
-  left: 7%;
-  top: 58%;
-  width: 18%;
-  height: 24%;
+  left: 6%;
+  top: 56%;
+  width: 17%;
+  height: 26%;
 }
 
 .hotspot-art {
-  left: 27%;
-  top: 52%;
+  left: 25%;
+  top: 50%;
   width: 7%;
-  height: 30%;
+  height: 32%;
 }
 
 .hotspot-kub {
-  left: 32%;
-  top: 68%;
+  left: 30%;
+  top: 66%;
   width: 10%;
-  height: 14%;
+  height: 15%;
 }
 
 .hotspot-poeziya {
-  left: 51%;
-  top: 55%;
-  width: 10%;
-  height: 30%;
+  left: 50%;
+  top: 53%;
+  width: 11%;
+  height: 32%;
 }
 
-/* Правый арт-объект → Контакты */
 .hotspot-contacts {
   left: 78%;
-  top: 55%;
-  width: 18%;
-  height: 28%;
+  top: 52%;
+  width: 17%;
+  height: 30%;
 }
 
 /* ===== Панель контактов ===== */
 .contacts-panel {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.78);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,27 +160,8 @@ html, body {
   color: #3d7aff;
 }
 
-/* ===== Подвал ===== */
-.site-footer {
-  margin-top: 1.6rem;
-  max-width: 640px;
-  text-align: center;
-  padding: 0 1rem;
-}
-
-.site-footer p {
-  font-size: 0.7rem;
-  line-height: 1.55;
-  color: #555566;
-  letter-spacing: 0.01em;
-}
-
 @media (max-width: 640px) {
   .page {
-    padding: 1rem 0.4rem 1.2rem;
-  }
-
-  .site-footer p {
-    font-size: 0.62rem;
+    padding: 0.8rem 0.4rem;
   }
 }
