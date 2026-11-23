@@ -47,8 +47,8 @@ html, body {
   background: transparent;
   cursor: pointer;
   padding: 0;
-  /* Для отладки:
-  background: rgba(255, 0, 0, 0.25);
+  /* Для отладки раскомментируй следующую строку:
+  background: rgba(255, 0, 0, 0.3);
   */
 }
 
@@ -57,19 +57,20 @@ html, body {
   outline-offset: 2px;
 }
 
-/* Координаты — будем уточнять после проверки */
+/* Скорректированные координаты по указаниям */
+
 .hotspot-proza {
-  left: 6%;
-  top: 56%;
+  left: 14.5%;
+  top: 59%;
   width: 17%;
-  height: 26%;
+  height: 19.5%;
 }
 
 .hotspot-art {
-  left: 25%;
-  top: 50%;
+  left: 32%;
+  top: 58%;
   width: 7%;
-  height: 32%;
+  height: 16%;
 }
 
 .hotspot-kub {
@@ -81,16 +82,16 @@ html, body {
 
 .hotspot-poeziya {
   left: 50%;
-  top: 53%;
-  width: 11%;
-  height: 32%;
+  top: 61%;
+  width: 16.5%;
+  height: 16%;
 }
 
 .hotspot-contacts {
   left: 78%;
-  top: 52%;
-  width: 17%;
-  height: 30%;
+  top: 59.5%;
+  width: 12.75%;
+  height: 15%;
 }
 
 /* ===== Панель контактов ===== */
