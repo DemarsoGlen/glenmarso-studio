@@ -1,4 +1,4 @@
-/* Glen Marso Studio — точное соответствие последнему эскизу */
+/* Glen Marso Studio */
 
 * {
   box-sizing: border-box;
@@ -47,17 +47,20 @@ html, body {
   background: transparent;
   cursor: pointer;
   padding: 0;
-  /* Для отладки раскомментируй следующую строку:
-  background: rgba(255, 0, 0, 0.3);
-  */
 }
 
 .hotspot:hover {
-  outline: 1px solid rgba(61, 122, 255, 0.55);
+  outline: 1px solid rgba(61, 122, 255, 0.5);
   outline-offset: 2px;
 }
 
-/* Скорректированные координаты по указаниям */
+/* Верхняя композиция (логотип + имя + орнамент) → Манифест */
+.hotspot-logo {
+  left: 15%;
+  top: 3%;
+  width: 70%;
+  height: 38%;
+}
 
 .hotspot-proza {
   left: 14.5%;
@@ -92,6 +95,137 @@ html, body {
   top: 59.5%;
   width: 12.75%;
   height: 15%;
+}
+
+/* ===== Панель Манифеста ===== */
+.manifesto-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+}
+
+.manifesto-panel[hidden] {
+  display: none;
+}
+
+.manifesto-inner {
+  background: #07070c;
+  border: 1px solid #1a5cff;
+  border-radius: 4px;
+  padding: 2.2rem 2.4rem 1.8rem;
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 50px rgba(26, 92, 255, 0.18);
+}
+
+.manifesto-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #777;
+  font-size: 1.7rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.manifesto-close:hover {
+  color: #fff;
+}
+
+.manifesto-content {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: #d8d8e4;
+  white-space: pre-line;
+}
+
+.manifesto-content.glitching {
+  animation: manifestoGlitch 0.55s steps(2, end);
+}
+
+@keyframes manifestoGlitch {
+  0% {
+    transform: translate(0, 0);
+    text-shadow: none;
+    opacity: 1;
+  }
+  15% {
+    transform: translate(-3px, 1px);
+    text-shadow: 2px 0 #1a5cff, -2px 0 #fff;
+    opacity: 0.85;
+  }
+  30% {
+    transform: translate(3px, -1px);
+    text-shadow: -2px 0 #1a5cff, 2px 0 #fff;
+    opacity: 0.7;
+  }
+  45% {
+    transform: translate(-2px, 2px);
+    text-shadow: 1px 0 #1a5cff;
+    opacity: 0.9;
+  }
+  60% {
+    transform: translate(2px, -2px);
+    text-shadow: -1px 0 #fff;
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate(0, 0);
+    text-shadow: none;
+    opacity: 1;
+  }
+}
+
+/* Переключатель языков */
+.lang-switcher {
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #1a1a28;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem 0.35rem;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: #666680;
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  padding: 0.25rem 0.35rem;
+  transition: color 0.2s;
+}
+
+.lang-btn:hover {
+  color: #a0a0c0;
+}
+
+.lang-btn.active {
+  color: #3d7aff;
+}
+
+.lang-sep {
+  color: #333348;
+  font-size: 0.75rem;
+  user-select: none;
 }
 
 /* ===== Панель контактов ===== */
@@ -164,5 +298,13 @@ html, body {
 @media (max-width: 640px) {
   .page {
     padding: 0.8rem 0.4rem;
+  }
+
+  .manifesto-inner {
+    padding: 1.8rem 1.4rem 1.4rem;
+  }
+
+  .manifesto-content {
+    font-size: 0.92rem;
   }
 }
