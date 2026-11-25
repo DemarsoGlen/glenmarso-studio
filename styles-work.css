@@ -1,0 +1,140 @@
+/* Glen Marso Studio — Individual work page */
+
+.work-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Шапка произведения */
+.work-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #1a1a28;
+}
+
+.work-header .back-link {
+  color: #8888a0;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: color 0.25s;
+}
+
+.work-header .back-link:hover {
+  color: #3d7aff;
+}
+
+.work-header-info {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #666680;
+  letter-spacing: 0.04em;
+}
+
+.work-type {
+  text-transform: uppercase;
+}
+
+/* Заголовок */
+.work-title-block {
+  margin-bottom: 2.8rem;
+  text-align: center;
+}
+
+.work-main-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.7rem;
+  color: #fff;
+}
+
+.work-author {
+  font-size: 0.95rem;
+  color: #3d7aff;
+  letter-spacing: 0.03em;
+}
+
+/* Текст */
+.work-text {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #d0d0e0;
+  margin-bottom: 3rem;
+}
+
+.work-text p {
+  margin-bottom: 1.4rem;
+}
+
+.work-text em {
+  font-style: italic;
+}
+
+.work-text strong {
+  font-weight: 600;
+  color: #e8e8f0;
+}
+
+.work-subtitle {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 2.5rem 0 1.3rem;
+  letter-spacing: 0.02em;
+}
+
+/* Для стихов можно добавить класс .work-text.poetry */
+.work-text.poetry {
+  text-align: center;
+  line-height: 1.9;
+  font-size: 1.12rem;
+}
+
+.work-text.poetry p {
+  margin-bottom: 1.8rem;
+}
+
+/* Нижняя навигация */
+.work-nav {
+  margin-bottom: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #1a1a28;
+}
+
+.work-nav-link {
+  color: #8888a0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.25s;
+}
+
+.work-nav-link:hover {
+  color: #3d7aff;
+}
+
+/* Адаптив */
+@media (max-width: 640px) {
+  .work-page {
+    padding: 1.4rem 1.1rem 2rem;
+  }
+
+  .work-main-title {
+    font-size: 1.5rem;
+  }
+
+  .work-text {
+    font-size: 1.02rem;
+  }
+}
