@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проза — Glen Marso Studio</title>
+  <meta name="description" content="Проза Глена Марсо: рассказы, повести, романы">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="../styles-section.css">
+</head>
+<body>
+  <div class="section-page">
+
+    <!-- Шапка -->
+    <header class="section-header">
+      <a href="/" class="back-link" title="На главную">←</a>
+      <h1 class="section-title">Проза</h1>
+      <div class="header-spacer"></div>
+    </header>
+
+    <!-- Введение -->
+    <div class="section-intro">
+      <p>Рассказы, повести, романы. Формы, в которых удерживается то, что явилось.</p>
+    </div>
+
+    <!-- Категории -->
+    <nav class="categories" aria-label="Категории">
+      <button class="cat-btn active" data-filter="all">Все</button>
+      <button class="cat-btn" data-filter="rasskazy">Рассказы</button>
+      <button class="cat-btn" data-filter="povesti">Повести</button>
+      <button class="cat-btn" data-filter="romany">Романы</button>
+    </nav>
+
+    <!-- Сетка произведений -->
+    <div class="works-grid" id="worksGrid">
+
+      <!-- Пример карточки (позже заменим на реальные) -->
+      <a href="#" class="work-card" data-category="rasskazy">
+        <div class="work-cover">
+          <span class="cover-placeholder">Обложка</span>
+        </div>
+        <div class="work-info">
+          <h2 class="work-title">Название рассказа</h2>
+          <span class="work-meta">Рассказ · 2024</span>
+        </div>
+      </a>
+
+      <a href="#" class="work-card" data-category="povesti">
+        <div class="work-cover">
+          <span class="cover-placeholder">Обложка</span>
+        </div>
+        <div class="work-info">
+          <h2 class="work-title">Название повести</h2>
+          <span class="work-meta">Повесть · 2025</span>
+        </div>
+      </a>
+
+      <a href="#" class="work-card" data-category="romany">
+        <div class="work-cover">
+          <span class="cover-placeholder">Обложка</span>
+        </div>
+        <div class="work-info">
+          <h2 class="work-title">Название романа</h2>
+          <span class="work-meta">Роман · 2023</span>
+        </div>
+      </a>
+
+      <a href="#" class="work-card" data-category="rasskazy">
+        <div class="work-cover">
+          <span class="cover-placeholder">Обложка</span>
+        </div>
+        <div class="work-info">
+          <h2 class="work-title">Ещё один рассказ</h2>
+          <span class="work-meta">Рассказ · 2025</span>
+        </div>
+      </a>
+
+      <a href="#" class="work-card" data-category="povesti">
+        <div class="work-cover">
+          <span class="cover-placeholder">Обложка</span>
+        </div>
+        <div class="work-info">
+          <h2 class="work-title">Вторая повесть</h2>
+          <span class="work-meta">Повесть · 2024</span>
+        </div>
+      </a>
+
+      <a href="#" class="work-card" data-category="romany">
+        <div class="work-cover">
+          <span class="cover-placeholder">Обложка</span>
+        </div>
+        <div class="work-info">
+          <h2 class="work-title">Второй роман</h2>
+          <span class="work-meta">Роман · 2026</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Подвал -->
+    <footer class="section-footer">
+      <p>© Glen Marso Studio</p>
+    </footer>
+  </div>
+
+  <script src="../script-section.js"></script>
+</body>
+</html>
