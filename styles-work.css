@@ -138,3 +138,31 @@
     font-size: 1.02rem;
   }
 }
+
+/* ===== Лёгкий фоновый водяной знак ===== */
+.work-text {
+  position: relative;
+}
+
+.work-text::before {
+  content: "Glen Marso Studio";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-28deg);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 7vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.028);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.work-text p,
+.work-text h2 {
+  position: relative;
+  z-index: 1;
+}
